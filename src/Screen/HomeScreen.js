@@ -1,10 +1,16 @@
-import { View,  StatusBar, StyleSheet } from 'react-native';
+import { View, StatusBar, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 
 import SearchBar from '../../src/Components/Searchbar';
-// src\Components\Searchbar
 const HomeScreen = ({ navigation }) => {
+    const [searchResult, setSearchResult] = useState([]);
 
+
+
+
+    const getSearchItemResult = (searchItems) => {
+        setSearchResult(searchItems);
+    };
 
 
     return (
@@ -13,7 +19,7 @@ const HomeScreen = ({ navigation }) => {
                 animated={true}
                 backgroundColor="#b3b3ff"
             />
-            <SearchBar  />
+            <SearchBar callBackSearchResult={getSearchItemResult} />
 
         </View>
     );
