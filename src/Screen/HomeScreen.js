@@ -1,4 +1,4 @@
-import { View,  StatusBar, StyleSheet , FlatList } from 'react-native';
+import { View, StatusBar, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 
 import SearchBar from '../../src/Components/Searchbar';
@@ -16,7 +16,9 @@ const HomeScreen = ({ navigation }) => {
     const renderItems = ({ item }) => {
         return (
             <>
+                <TouchableOpacity onPress={() => navigation.navigate('Details', { item })}>
                     <BookCard item={item} />
+                </TouchableOpacity>
             </>
         );
     };
